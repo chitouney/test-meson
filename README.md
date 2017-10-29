@@ -17,7 +17,7 @@ The project contains:
 
 ```
 mkdir builddir'
-LDFLAGS='-Wl,--no-undefined' meson builddir && cd builddir
+meson builddir && cd builddir
 ninja -v
 ```
 

@@ -5,10 +5,6 @@ project('a library', 'c', 'cpp',
                                         'cpp_std=c++11',
                                         'warning_level=1'])
 
-# we use LDFLAGS in the meson config command line since
-# only available starting meson 0.42.0 
-# add_global_link_arguments('-Wl,--no-undefined')
-
 boost_dep = dependency('boost',
                        modules : ['thread', 'chrono', 'system'],
                        required : true)

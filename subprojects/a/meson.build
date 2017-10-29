@@ -1,9 +1,9 @@
-project('a_lib', 'c', 'cpp',
-                 version : '1.0.0',
-                 license : 'MIT',
-                 default_options : ['c_std=c11',
-                                    'cpp_std=c++11',
-                                    'warning_level=1'])
+project('a library', 'c', 'cpp',
+                     version : '1.0.0',
+                     license : 'MIT',
+                     default_options : ['c_std=c11',
+                                        'cpp_std=c++11',
+                                        'warning_level=1'])
 
 # we use LDFLAGS in the meson config command line since
 # only available starting meson 0.42.0 
@@ -32,11 +32,11 @@ a_dep = declare_dependency(include_directories : a_inc,
                            dependencies: [boost_dep])
 
 # we should use configure_file since required/required.private & co
-# are not supported yet pkg_mod
+# are not supported yet by pkg_mod
 
 pkg_mod = import('pkgconfig')
 pkg_mod.generate(libraries : a_lib,
                  version : '1.0',
-                 name : 'liba',
+                 name : 'a',
                  filebase : 'a',
-                 description : 'A Library to get current date')
+                 description : 'a Library to get current date')

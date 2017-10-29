@@ -10,9 +10,9 @@ meson_min_version ='0.42.0'
 mmeson = find_program('meson', required : true)
 if mmeson.found()
     v = run_command('meson', '--version').stdout().strip()
-    assert(v.version_compare('>=' + meson_min_version),
-           'meson minimal version not found ' + v + ' < '+ meson_min_version)
-    message('meson version ' + meson_min_version + ' found')
+    m = 'meson version found ' + v + ' (required: '  + meson_min_version + ')'
+    assert(v.version_compare('>=' + meson_min_version), m)
+    message(m)
 endif
                                        
 add_global_arguments(language : 'cpp')

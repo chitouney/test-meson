@@ -23,7 +23,12 @@ a_inc = a_sp.get_variable('a_inc')
 a_link = a_sp.get_variable('a_lib')
 a_dep = a_sp.get_variable('a_dep')
 
-executable('program', 'src/main.cpp', include_directories : a_inc,
-                                      link_with : a_link,
-                                      dependencies : a_dep,
+b_sp = subproject('b')
+b_inc = b_sp.get_variable('b_inc')
+b_link = b_sp.get_variable('b_lib')
+b_dep = b_sp.get_variable('b_dep')
+
+executable('program', 'src/main.cpp', include_directories : [a_inc, b_inc],
+                                      link_with : [a_link, b_link],
+                                      dependencies : [a_dep, b_dep],
                                       install : true)
